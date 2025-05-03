@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: debian:sid-slim
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update system
+        run: |
+          sed -i 's%main%main contrib non-free%' /etc/apt/sources.list.d/debian.sources
+          apt-get update
+          apt-get full-upgrade -y
+
+      - name: Install build dependencies
+        run: apt-get -y install meson gcc libspa-0.2-dev libfdk-aac-dev
+
+      - name: Setup build directory
+        run: meson setup build -Dbuildtype=release -Dc_args=-march=native
+
+      - name: Build
+        run: meson compile -C build
