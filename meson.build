@@ -1,4 +1,4 @@
-project('liba-aac', 'c', version: '1.4.7', license: 'MIT')
+project('liba-aac', 'c', version: '1.6.2', license: 'MIT')
 
 spa_dep = dependency('libspa-0.2', method: 'pkg-config')
 fdk_aac_dep = dependency('fdk-aac', method: 'pkg-config')

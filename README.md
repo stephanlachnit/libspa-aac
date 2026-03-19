@@ -7,6 +7,7 @@ Dependencies:
 
 - `libspa-0.2-dev`
 - `libfdk-aac-dev`
+- `libbluetooth-dev`
 
 Build instructions:
 
