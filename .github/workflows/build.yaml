@@ -25,7 +25,7 @@ jobs:
         run: apt-get -y install meson gcc libspa-0.2-dev libfdk-aac-dev libbluetooth-dev
 
       - name: Setup build directory
-        run: meson setup build -Dbuildtype=release -Dc_args=-march=native
+        run: meson setup build -Dbuildtype=release -Dc_args=-march=native -Db_lto=true
 
       - name: Build
         run: meson compile -C build
