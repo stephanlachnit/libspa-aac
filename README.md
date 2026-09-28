@@ -11,7 +11,7 @@ Dependencies:
 
 Build instructions:
 
-- `meson setup build -Dbuildtype=release -Dc_args=-march=native`
+- `meson setup build -Dbuildtype=release -Dc_args=-march=native -Db_lto=true`
 - `meson compile -C build`
 - `meson install -C build`
 
